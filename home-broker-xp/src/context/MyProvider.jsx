@@ -6,13 +6,16 @@ import ApiFake from '../db.json';
 function Provider({ children }) {
   const [usuarios, setUsuarios] = useState(ApiFake.usuarios);
   const [acoes, setAcoes] = useState(ApiFake.acoes);
+  const [email, setEmail] = useState('');
 
   const contextValue = useMemo(() => ({
+    email,
+    setEmail,
     usuarios,
     setUsuarios,
     acoes,
     setAcoes,
-  }), [usuarios, acoes]);
+  }), [email, usuarios, acoes]);
 
   return (
     <Context.Provider value={contextValue}>
