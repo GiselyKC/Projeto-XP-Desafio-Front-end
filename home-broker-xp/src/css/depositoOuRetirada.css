@@ -1,0 +1,55 @@
+.container-deposito-retirada {
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  min-height: 100vh;
+  /* min-width: 100vw; */
+  width: 100%;
+  background-color: rgb(38, 41, 59);
+  color: honeydew;
+}
+
+.container-saldo {
+  display: flex;
+  justify-content: space-around;
+  border: solid 1px honeydew;
+  background-color: honeydew;
+  color: rgb(38, 41, 59);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.container-saldo p {
+  margin: 5px;
+}
+
+.container-btn-deposito-retirada {
+  display: flex;
+  justify-content: center
+}
+
+.btn-deposito-retirada {
+  margin: 50px 30px 30px;
+  padding: 10px 30px;
+  font-size: 15px;
+  border: solid 1px honeydew;
+  background-color: transparent;
+  color: honeydew;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.btn-voltar-confirmar {
+  margin: 100px 30px 0;
+  padding: 10px 30px;
+  font-size: 15px;
+  border: solid 1px honeydew;
+  background-color: transparent;
+  color: honeydew;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.input-deposito-retirada {
+  padding: 5px;
+}
