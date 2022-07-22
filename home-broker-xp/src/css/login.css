@@ -1,0 +1,112 @@
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100%;
+  background-color: rgb(38, 41, 59);
+}
+
+.container-input-login {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  text-align: center;
+  font-size:15px;
+}
+
+.input-login:-webkit-autofill {
+  box-shadow: 0 0 0 30px rgb(38, 41, 59) inset;
+  -webkit-text-fill-color: honeydew;
+}
+
+.input-login {
+  padding: 10px;
+  margin: 20px;
+  width: 20%;
+  background-color: transparent;
+  border: none;
+  color:honeydew;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  border-bottom: 2px solid #adadad;
+}
+
+/* A animação do botão de login, foi retirada do site abaixo:*/
+/* https://uiverse.io/detail/meermubashar/rotten-swan-33 */
+.btn-login {
+  width: 20%;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  border: solid 1px honeydew;
+  color: honeydew;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+  position: relative;
+  transition: all 0.5s;
+  z-index: 1;
+}
+ 
+.btn-login::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: honeydew;
+  z-index: -1;
+  transition: all 0.5s;
+ }
+ 
+ .btn-login:hover::before {
+  width: 100%;
+ }
+ 
+ .btn-login:hover {
+  color: black;
+ }
+ 
+ .btn-login:active:before {
+  background: #b9b9b9;
+ }
+
+@media (max-width: 1200px) {
+
+.input-login {
+  width: 30%;
+}
+
+.btn-login {
+  width: 30%;
+}
+}
+
+
+
+@media (max-width: 600px) {
+
+.input-login {
+  width: 60%;
+}
+
+.btn-login {
+  width: 60%;
+}
+}
