@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Login />} />
       <Route path="/lista-acoes" element={<ListaDeAcoes />} />
-      <Route path="/comprar-vender" element={<ComprarOuVender />} />
+      <Route path="/comprar-vender/:id" element={<ComprarOuVender />} />
       <Route path="/deposito-retirada" element={<DepositoOuRetirada />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
