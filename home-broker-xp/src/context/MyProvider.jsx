@@ -7,6 +7,7 @@ function Provider({ children }) {
   const [usuarios, setUsuarios] = useState(ApiFake.usuarios);
   const [acoes, setAcoes] = useState(ApiFake.acoes);
   const [email, setEmail] = useState('');
+  const [infoBotao, setInfoBotao] = useState('');
 
   const contextValue = useMemo(() => ({
     email,
@@ -15,7 +16,9 @@ function Provider({ children }) {
     setUsuarios,
     acoes,
     setAcoes,
-  }), [email, usuarios, acoes]);
+    infoBotao,
+    setInfoBotao,
+  }), [email, usuarios, acoes, infoBotao]);
 
   return (
     <Context.Provider value={contextValue}>
