@@ -11,6 +11,8 @@ export default function ListaDeAcoes() {
     usuarios,
     acoes,
     setInfoBotao,
+    CVUsuario,
+    CVAcao,
   } = useContext(Context);
 
   useEffect(() => {
@@ -56,6 +58,48 @@ export default function ListaDeAcoes() {
                       </td>
                     </tr>
                   ))
+              }
+              {
+                CVUsuario.map((CV) => (
+                  <tr key={CV.id}>
+                    <td>{CV.nomeAcao}</td>
+                    <td>{CV.quantidade}</td>
+                    <td>{CV.preco}</td>
+                    <td>
+                      <button
+                        type="button"
+                        value="acaoUsuario"
+                        onClick={() => {
+                          navigate(`/comprar-vender/${CV.id}`);
+                          setInfoBotao('acaoUsuario');
+                        }}
+                      >
+                        C / V
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              }
+              {
+                CVAcao.map((CV) => (
+                  <tr key={CV.id}>
+                    <td>{CV.nomeAcao}</td>
+                    <td>{CV.quantidade}</td>
+                    <td>{CV.preco}</td>
+                    <td>
+                      <button
+                        type="button"
+                        value="acaoUsuario"
+                        onClick={() => {
+                          navigate(`/comprar-vender/${CV.id}`);
+                          setInfoBotao('acaoUsuario');
+                        }}
+                      >
+                        C / V
+                      </button>
+                    </td>
+                  </tr>
+                ))
               }
             </tbody>
           </table>
