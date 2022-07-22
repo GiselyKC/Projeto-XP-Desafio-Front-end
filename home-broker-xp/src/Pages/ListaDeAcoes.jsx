@@ -1,74 +1,109 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Context from '../context/MyContext';
 import NomeUsuario from '../components/NomeUsuario';
+import '../css/listaDeAcoes.css';
 
 export default function ListaDeAcoes() {
   const navigate = useNavigate();
-  const { acoes } = useContext(Context);
+  const {
+    email,
+    usuarios,
+    acoes,
+    setInfoBotao,
+  } = useContext(Context);
+
+  useEffect(() => {
+    setInfoBotao('');
+  }, []);
 
   return (
-    <div>
-      <h1>ListaDeAcoes</h1>
+    <div className="container-lista-acoes">
       <NomeUsuario />
-      <div>
-        <h2>Minhas Ações</h2>
-        <table border="1">
-          <thead>
-            <tr>
-              <th>Ação</th>
-              <th>Quantidade</th>
-              <th>Valor (R$)</th>
-              <th>Negociar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>nomeAcao</td>
-              <td>quantidade</td>
-              <td>precoAcao</td>
-              <td>
-                <button type="button">C</button>
-                <button type="button">V</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="container-tabelas">
+        <div>
+          <h3 className="title-lista-acoes">Minhas Ações:</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Ação</th>
+                <th>Qtde</th>
+                <th>Valor (R$)</th>
+                <th>Negociar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                usuarios.find((usuario) => usuario.email === email).minhasAcoes
+                  .map(({
+                    id, nomeAcao, preco, quantidade,
+                  }) => (
+                    <tr key={id}>
+                      <td>{nomeAcao}</td>
+                      <td>{quantidade}</td>
+                      <td>{preco}</td>
+                      <td>
+                        <button
+                          type="button"
+                          value="acaoUsuario"
+                          onClick={() => {
+                            navigate(`/comprar-vender/${id}`);
+                            setInfoBotao('acaoUsuario');
+                          }}
+                        >
+                          C / V
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3 className="title-lista-acoes">Disponíveis para investir:</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Ação</th>
+                <th>Qtde</th>
+                <th>Valor (R$)</th>
+                <th>Negociar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                acoes.map((acao) => (
+                  <tr key={acao.id}>
+                    <td>{acao.nomeAcao}</td>
+                    <td>{acao.quantidade}</td>
+                    <td>{acao.preco}</td>
+                    <td>
+                      <button
+                        type="button"
+                        value="acaoDisponivel"
+                        onClick={() => {
+                          navigate(`/comprar-vender/${acao.id}`);
+                          setInfoBotao('acaoDisponivel');
+                        }}
+                      >
+                        C
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <button
+          className="btn-lista-acoes"
+          type="button"
+          onClick={() => navigate('/deposito-retirada')}
+        >
+          Depósito / Retirada
+        </button>
       </div>
-      <div>
-        <h2>Disponíveis para investir</h2>
-        <table border="1">
-          <thead>
-            <tr>
-              <th>Ação</th>
-              <th>Quantidade</th>
-              <th>Valor (R$)</th>
-              <th>Negociar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              acoes.map((acao) => (
-                <tr key={acao.id}>
-                  <td>{acao.nomeAcao}</td>
-                  <td>1</td>
-                  <td>{acao.preco}</td>
-                  <td>
-                    <button type="button">C</button>
-                    <button type="button">V</button>
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-      <button
-        type="button"
-        onClick={() => navigate('/deposito-retirada')}
-      >
-        Depósito/Retirada
-      </button>
     </div>
   );
 }
