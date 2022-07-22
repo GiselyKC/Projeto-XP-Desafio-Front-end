@@ -9,15 +9,21 @@
       "conta": 10000.00,
       "minhasAcoes": [
         {
-          "acaoId": 1,
+          "id": 1,
+          "nomeAcao": "AZUL4",
+          "preco": "350,00",
           "quantidade": 100
         },
         {
-          "acaoId": 4,
+          "id": 3,
+          "nomeAcao": "VALE4",
+          "preco": "350,00",
           "quantidade": 100
         },
         {
-          "acaoId": 6,
+          "id": 8,
+          "nomeAcao": "MGLU3",
+          "preco": "350,00",
           "quantidade": 100
         }
       ]
@@ -31,15 +37,15 @@
       "conta": 1000.00,
       "minhasAcoes": [
         {
-          "acaoId": 3,
+          "id": 8,
+          "nomeAcao": "MGLU3",
+          "preco": "350,00",
           "quantidade": 100
         },
         {
-          "acaoId": 4,
-          "quantidade": 100
-        },
-        {
-          "acaoId": 8,
+          "id": 5,
+          "nomeAcao": "ABEV3",
+          "preco": "350,00",
           "quantidade": 100
         }
       ]
@@ -49,42 +55,50 @@
     {
       "id": 1,
       "nomeAcao": "AZUL4",
-      "preco": "350,00"
+      "preco": "350,00",
+      "quantidade": 1
     },
     {
       "id": 2,
       "nomeAcao": "PETR4",
-      "preco": "350,00"
+      "preco": "350,00",
+      "quantidade": 1
     },
     {
       "id": 3,
       "nomeAcao": "VALE4",
-      "preco": "350,00"
+      "preco": "350,00",
+      "quantidade": 1
     },
     {
       "id": 4,
       "nomeAcao": "ITUB4",
-      "preco": "350,00"
+      "preco": "350,00",
+      "quantidade": 1
     },
     {
       "id": 5,
       "nomeAcao": "ABEV3",
-      "preco": "350,00"
+      "preco": "350,00",
+      "quantidade": 1
     },
     {
       "id": 6,
       "nomeAcao": "GOLL4",
-      "preco": "350,00"
+      "preco": "350,00",
+      "quantidade": 1
     },
     {
       "id": 7,
       "nomeAcao": "EMBR3",
-      "preco": "350,00"
+      "preco": "350,00",
+      "quantidade": 1
     },
     {
       "id": 8,
       "nomeAcao": "MGLU3",
-      "preco": "350,00"
+      "preco": "350,00",
+      "quantidade": 1
     }
     
   ]
