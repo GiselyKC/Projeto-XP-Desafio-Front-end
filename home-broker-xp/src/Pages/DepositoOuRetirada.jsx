@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NomeUsuario from '../components/NomeUsuario';
+import { Toaster, toast } from 'react-hot-toast';
 import Context from '../context/MyContext';
+import NomeUsuario from '../components/NomeUsuario';
 import '../css/depositoOuRetirada.css';
 
 export default function DepositoOuRetirada() {
@@ -22,17 +23,19 @@ export default function DepositoOuRetirada() {
     } if (valueBotao === 'botaoRetirada') {
       setContaValor(contaValor - Number(inputValor));
     } if (valueBotao === '') {
-      alert('Deve selecionar as opções de Deposito ou Retirada');
+      toast.error('Deve selecionar as opções de Deposito ou Retirada');
     } if (contaValor <= 0 && valueBotao === 'botaoRetirada') {
-      alert('Saldo insuficiente para retirada');
+      toast.error('Saldo insuficiente para retirada');
       setContaValor(0);
+    } if (inputValor === '') {
+      toast.error('Insira o valor');
     }
     return botaoConfirmar;
   };
 
   return (
     <div className="container-deposito-retirada">
-      {/* <h1>DepositoOuRetirada</h1> */}
+      <Toaster />
       <NomeUsuario />
       <div className="container-saldo">
         <p>Saldo em Conta:</p>
@@ -40,7 +43,7 @@ export default function DepositoOuRetirada() {
       </div>
       <div className="container-btn-deposito-retirada">
         <button
-          className="btn-deposito-retirada"
+          className={valueBotao === 'botaoDeposito' ? 'btn-deposito-retirada-selecionado' : 'btn-deposito-retirada'}
           type="button"
           value="botaoDeposito"
           onClick={({ target: { value } }) => setValueBotao(value)}
@@ -48,7 +51,7 @@ export default function DepositoOuRetirada() {
           Depósito
         </button>
         <button
-          className="btn-deposito-retirada"
+          className={valueBotao === 'botaoRetirada' ? 'btn-deposito-retirada-selecionado' : 'btn-deposito-retirada'}
           type="button"
           value="botaoRetirada"
           onClick={({ target: { value } }) => setValueBotao(value)}
@@ -56,14 +59,17 @@ export default function DepositoOuRetirada() {
           Retirada
         </button>
       </div>
-      <input
-        className="input-deposito-retirada"
-        type="text"
-        id="text"
-        placeholder="Informe o Valor"
-        onChange={({ target: { value } }) => setInputValor(value)}
-      />
-      <div className="container-btn-deposito-retirada">
+      <label className="label-deposito-retirada" htmlFor="input-deposito-retirada">
+        R$:
+        <input
+          className="input-deposito-retirada"
+          type="text"
+          id="input-deposito-retirada"
+          placeholder="Informe o Valor"
+          onChange={({ target: { value } }) => setInputValor(value)}
+        />
+      </label>
+      <div className="container-btn-confirmar-voltar">
         <button
           className="btn-voltar-confirmar"
           type="button"
