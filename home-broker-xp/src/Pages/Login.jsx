@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Toaster, toast } from 'react-hot-toast';
 import Context from '../context/MyContext';
 import '../css/login.css';
 
@@ -15,7 +16,7 @@ export default function Login() {
   const habilitarBotao = () => {
     const teste = usuarios.find((usuario) => usuario.email === email).senha;
     if (senhaLogin !== teste) {
-      alert('Senha incorreta');
+      toast.error('Senha incorreta');
     }
     if (senhaLogin === teste) {
       navigate('/lista-acoes');
@@ -24,6 +25,7 @@ export default function Login() {
 
   return (
     <div className="container-login">
+      <Toaster />
       <div className="container-input-login">
         <input
           className="input-login"
