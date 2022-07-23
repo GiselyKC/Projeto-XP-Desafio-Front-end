@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Toaster, toast } from 'react-hot-toast';
 import Context from '../context/MyContext';
 import NomeUsuario from '../components/NomeUsuario';
+import '../css/comprarOuVender.css';
 
 export default function ComprarOuVender() {
   const { id } = useParams();
@@ -19,121 +21,135 @@ export default function ComprarOuVender() {
   const [valorBotao, setValorBotao] = useState('');
   const [valorInput, setValorInput] = useState('');
 
+  const objetoUsuario = () => usuarios.find((usuario) => usuario.email === email).minhasAcoes
+    .filter((user) => user.id === Number(id)).map((acaoId) => (
+      setCVUsuario([...CVUsuario, {
+        id: acaoId.id,
+        nomeAcao: acaoId.nomeAcao,
+        preco: acaoId.preco,
+        quantidade: (valorBotao === 'btnComprar' ? (acaoId.quantidade + Number(valorInput)) : (acaoId.quantidade - Number(valorInput))),
+      }])
+    ));
+
+  const objetoAcao = () => acoes.filter((acao) => acao.id === Number(id))
+    .map((acaoId) => (
+      setCVAcao([...CVAcao, {
+        id: acaoId.id,
+        nomeAcao: acaoId.nomeAcao,
+        preco: acaoId.preco,
+        quantidade: (valorBotao === 'btnComprar' ? (acaoId.quantidade + Number(valorInput)) : (acaoId.quantidade - Number(valorInput))),
+        input: valorInput,
+        btn: valorBotao,
+      }])
+    ));
+
   const btnConfirmar = () => {
     if (valorBotao === '') {
-      alert('Deve informar se é compra ou venda');
+      toast.error('Deve informar a opção');
+    } if (valorInput === '') {
+      toast.error('Deve informar o valor desejado');
     }
-    if (valorInput === '') {
-      alert('Deve informar o valor');
+    if (infoBotao === 'acaoUsuario' && valorInput !== '') {
+      objetoUsuario();
+      toast.success('Realizado com sucesso');
     }
-    if (infoBotao === 'acaoUsuario') {
-      usuarios.find((usuario) => usuario.email === email).minhasAcoes
-        .filter((user) => user.id === Number(id)).map((acaoId) => (
-          setCVUsuario([...CVUsuario, {
-            id: acaoId.id,
-            nomeAcao: acaoId.nomeAcao,
-            preco: acaoId.preco,
-            quantidade: acaoId.quantidade,
-            input: valorInput,
-            btn: valorBotao,
-          }])
-        ));
+    if (infoBotao === 'acaoDisponivel' && valorInput !== '') {
+      objetoAcao();
+      toast.success('Realizado com sucesso');
     }
-    if (infoBotao === 'acaoDisponivel') {
-      acoes.filter((acao) => acao.id === Number(id))
-        .map((acaoId) => (
-          setCVAcao([...CVAcao, {
-            id: acaoId.id,
-            nomeAcao: acaoId.nomeAcao,
-            preco: acaoId.preco,
-            quantidade: acaoId.quantidade,
-            input: valorInput,
-            btn: valorBotao,
-          }])
-        ));
-    }
-    navigate('/lista-acoes');
   };
 
   return (
-    <div>
-      <h1>ComprarOuVender</h1>
+    <div className="container-comprar-vender">
       <NomeUsuario />
-      <h2>Comprar/Vender Ação</h2>
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Ação</th>
-            <th>Quantidade</th>
-            <th>Valor (R$)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-          infoBotao === 'acaoUsuario'
-            ? (
-              usuarios.find((usuario) => usuario.email === email).minhasAcoes
-                .filter((user) => user.id === Number(id)).map((acaoId) => (
-                  <tr key={acaoId.id}>
-                    <td>{acaoId.nomeAcao}</td>
-                    <td>{acaoId.quantidade}</td>
-                    <td>{acaoId.preco}</td>
-                  </tr>
-                ))
-            )
-            : (
-              acoes.filter((acao) => acao.id === Number(id))
-                .map((acaoId) => (
-                  <tr key={acaoId.id}>
-                    <td>{acaoId.nomeAcao}</td>
-                    <td>{acaoId.quantidade}</td>
-                    <td>{acaoId.preco}</td>
-                  </tr>
-                ))
-            )
-          }
-        </tbody>
-      </table>
-      <div>
-        <button
-          type="button"
-          value="btnComprar"
-          onClick={({ target: { value } }) => setValorBotao(value)}
-        >
-          Comprar
-        </button>
-        <input
-          type="text"
-          placeholder="Informe o valor"
-          onChange={({ target: { value } }) => setValorInput(value)}
-        />
+      <Toaster />
+      <div className="container-table-comprar-vender">
+        <h3 className="title-comprar-vender">Comprar/Vender Ação:</h3>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Ação</th>
+              <th>Quantidade</th>
+              <th>Valor (R$)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+            infoBotao === 'acaoUsuario'
+              ? (
+                usuarios.find((usuario) => usuario.email === email).minhasAcoes
+                  .filter((user) => user.id === Number(id)).map((acaoId) => (
+                    <tr key={acaoId.id}>
+                      <td>{acaoId.nomeAcao}</td>
+                      <td>{acaoId.quantidade}</td>
+                      <td>{acaoId.preco}</td>
+                    </tr>
+                  ))
+              )
+              : (
+                acoes.filter((acao) => acao.id === Number(id))
+                  .map((acaoId) => (
+                    <tr key={acaoId.id}>
+                      <td>{acaoId.nomeAcao}</td>
+                      <td>{acaoId.quantidade}</td>
+                      <td>{acaoId.preco}</td>
+                    </tr>
+                  ))
+              )
+            }
+          </tbody>
+        </table>
+        <div className="container-btn-input-comprar-vender">
+          <div>
+            <button
+              className={valorBotao === 'btnComprar' ? 'btn-vender-comprar-selecionado' : 'btn-vender-comprar'}
+              type="button"
+              value="btnComprar"
+              onClick={({ target: { value } }) => setValorBotao(value)}
+            >
+              Comprar
+            </button>
+            <input
+              className="input-comprar-vender"
+              type="text"
+              placeholder="Informe a quantidade"
+              onChange={({ target: { value } }) => setValorInput(value)}
+            />
+          </div>
+          <div>
+            <button
+              className={valorBotao === 'btnVender' ? 'btn-vender-comprar-selecionado' : 'btn-vender-comprar'}
+              type="button"
+              value="btnVender"
+              onClick={({ target: { value } }) => setValorBotao(value)}
+            >
+              Vender
+            </button>
+            <input
+              className="input-comprar-vender"
+              type="text"
+              placeholder="Informe a quantidade"
+              onChange={({ target: { value } }) => setValorInput(value)}
+            />
+          </div>
+        </div>
       </div>
-      <div>
+      <div className="container-btn-confirmar-voltar ">
         <button
+          className="btn-voltar-confirmar"
           type="button"
-          value="btnVender"
-          onClick={({ target: { value } }) => setValorBotao(value)}
+          onClick={() => navigate('/lista-acoes')}
         >
-          Vender
+          Voltar
         </button>
-        <input
-          type="text"
-          placeholder="Informe o valor"
-          onChange={({ target: { value } }) => setValorInput(value)}
-        />
+        <button
+          className="btn-voltar-confirmar"
+          type="button"
+          onClick={btnConfirmar}
+        >
+          Confirmar
+        </button>
       </div>
-      <button
-        type="button"
-        onClick={() => navigate('/lista-acoes')}
-      >
-        Voltar
-      </button>
-      <button
-        type="button"
-        onClick={btnConfirmar}
-      >
-        Confirmar
-      </button>
     </div>
   );
 }
