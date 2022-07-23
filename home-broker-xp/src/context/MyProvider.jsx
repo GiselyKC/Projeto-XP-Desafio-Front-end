@@ -8,22 +8,8 @@ function Provider({ children }) {
   const [acoes, setAcoes] = useState(ApiFake.acoes);
   const [email, setEmail] = useState('');
   const [infoBotao, setInfoBotao] = useState('');
-  const [CVUsuario, setCVUsuario] = useState([{
-    id: 0,
-    nomeAcao: '',
-    preco: '',
-    quantidade: 0,
-    input: 0,
-    btn: '',
-  }]);
-  const [CVAcao, setCVAcao] = useState([{
-    id: 0,
-    nomeAcao: '',
-    preco: '',
-    quantidade: 0,
-    input: 0,
-    btn: '',
-  }]);
+  const [CVUsuario, setCVUsuario] = useState([]);
+  const [CVAcao, setCVAcao] = useState([]);
 
   const contextValue = useMemo(() => ({
     email,
