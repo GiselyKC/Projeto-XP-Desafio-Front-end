@@ -5,7 +5,6 @@ import ListaDeAcoes from './Pages/ListaDeAcoes';
 import ComprarOuVender from './Pages/ComprarOuVender';
 import DepositoOuRetirada from './Pages/DepositoOuRetirada';
 import NotFound from './Pages/NotFound';
-import './App.css';
 
 function App() {
   return (
