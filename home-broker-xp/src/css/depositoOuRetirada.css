@@ -25,31 +25,68 @@
 
 .container-btn-deposito-retirada {
   display: flex;
-  justify-content: center
+  justify-content: space-around;
+  margin: 50px 0;
 }
 
 .btn-deposito-retirada {
-  margin: 50px 30px 30px;
+  margin: 2px;
   padding: 10px 30px;
   font-size: 15px;
   border: solid 1px honeydew;
-  background-color: transparent;
+  background-color: rgb(38, 41, 59);
   color: honeydew;
   font-weight: 700;
   letter-spacing: 2px;
+  width: 35%;
 }
 
-.btn-voltar-confirmar {
-  margin: 100px 30px 0;
+.btn-deposito-retirada-selecionado {
+  margin: 2px;
   padding: 10px 30px;
   font-size: 15px;
   border: solid 1px honeydew;
-  background-color: transparent;
-  color: honeydew;
+  background-color: honeydew;
+  color: rgb(38, 41, 59);
   font-weight: 700;
   letter-spacing: 2px;
+  width: 35%;
+}
+
+.label-deposito-retirada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .input-deposito-retirada {
   padding: 5px;
+  font-size: 15px;
+  text-align: center;
+  width: 50%;
+  background-color: honeydew;
+  border: none;
+}
+
+.container-btn-confirmar-voltar  {
+  background-color: honeydew;
+  bottom: 0px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+}
+
+.btn-voltar-confirmar {
+  margin: 2px;
+  padding: 10px 30px;
+  font-size: 15px;
+  border: solid 1px honeydew;
+  background-color: rgb(38, 41, 59);
+  color: honeydew;
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 50%
 }
