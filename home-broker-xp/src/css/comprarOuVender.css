@@ -1,0 +1,119 @@
+.container-comprar-vender {
+  background-color: rgb(38, 41, 59);
+  color: honeydew;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.container-nome {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px;
+}
+
+.container-table-comprar-vender {
+  display: flex;
+  margin-bottom: 100px;
+  flex-direction: column;
+  align-items: stretch;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.title-comprar-vender {
+  margin: 30px 0 10px;
+}
+
+table {
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 1px;
+  /* border: solid 1px honeydew; */
+  border: none;
+
+}
+
+table th {
+  padding: 5px 10px;
+  font-weight: 700;
+  background-color: honeydew;
+  color: rgb(38, 41, 59);
+  /* border: solid 1px honeydew; */
+}
+
+table td {
+  padding: 2px 10px;
+  border: none;
+  border-bottom: solid 1px honeydew;
+}
+
+table button {
+  width: 100%;
+  font-weight: 700;
+  color: rgb(38, 41, 59);
+}
+
+.container-btn-input-comprar-vender {
+  margin: 30px 0;
+  width: 100%;
+}
+
+.input-comprar-vender {
+  padding: 10px 30px;
+  font-size: 15px;
+  text-align: center;
+  width: 50%;
+  background-color: honeydew;
+  border: none;
+  width: 62%;
+  border: solid 1px honeydew;
+  margin: 20px 0;
+}
+
+.btn-vender-comprar {
+  padding: 10px 30px;
+  font-size: 15px;
+  border: solid 1px honeydew;
+  background-color: rgb(38, 41, 59);
+  color: honeydew;
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 38%;
+  margin: 20px 0;
+}
+
+.btn-vender-comprar-selecionado {
+  padding: 11px 30px;
+  font-size: 15px;
+  border: honeydew;
+  border-right: solid 1px rgb(38, 41, 59);
+  background-color: honeydew;
+  color: rgb(38, 41, 59);
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 38%;
+  margin: 20px 0;
+}
+
+.container-btn-confirmar-voltar  {
+  background-color: honeydew;
+  bottom: 0px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+}
+
+.btn-voltar-confirmar {
+  margin: 2px;
+  padding: 10px 30px;
+  font-size: 15px;
+  border: solid 1px honeydew;
+  background-color: rgb(38, 41, 59);
+  color: honeydew;
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 50%
+}
