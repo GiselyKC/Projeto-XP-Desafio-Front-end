@@ -19,11 +19,24 @@ export default function ListaDeAcoes() {
     setInfoBotao('');
   }, []);
 
+  const infoAcoesUsuarioEmail = usuarios.find((usuario) => usuario.email === email).minhasAcoes;
+
+  const CVUsuarioOrganizado = [...infoAcoesUsuarioEmail, ...CVUsuario]
+    .reduce((acc, CVUsuarioInfo) => {
+      const novoAcc = acc.filter(({ id }) => id !== CVUsuarioInfo.id);
+      return [...novoAcc, CVUsuarioInfo];
+    }, []);
+
+  const CVAcaoOrganizado = CVAcao.reduce((acc, CVAcaoInfo) => {
+    const novoAcc = acc.filter(({ id }) => id !== CVAcaoInfo.id);
+    return [...novoAcc, CVAcaoInfo];
+  }, []);
+
   return (
     <div className="container-lista-acoes">
       <NomeUsuario />
       <div className="container-tabelas">
-        <div>
+        <div className="tabela-usuario-acao">
           <h3 className="title-lista-acoes">Minhas Ações:</h3>
           <table>
             <thead>
@@ -35,7 +48,7 @@ export default function ListaDeAcoes() {
               </tr>
             </thead>
             <tbody>
-              {
+              {/* {
                 usuarios.find((usuario) => usuario.email === email).minhasAcoes
                   .map(({
                     id, nomeAcao, preco, quantidade,
@@ -58,9 +71,9 @@ export default function ListaDeAcoes() {
                       </td>
                     </tr>
                   ))
-              }
+              } */}
               {
-                CVUsuario.map((CV) => (
+                CVUsuarioOrganizado.map((CV) => (
                   <tr key={CV.id}>
                     <td>{CV.nomeAcao}</td>
                     <td>{CV.quantidade}</td>
@@ -81,7 +94,7 @@ export default function ListaDeAcoes() {
                 ))
               }
               {
-                CVAcao.map((CV) => (
+                CVAcaoOrganizado.map((CV) => (
                   <tr key={CV.id}>
                     <td>{CV.nomeAcao}</td>
                     <td>{CV.quantidade}</td>
@@ -104,7 +117,7 @@ export default function ListaDeAcoes() {
             </tbody>
           </table>
         </div>
-        <div>
+        <div className="tabela-usuario-acao">
           <h3 className="title-lista-acoes">Disponíveis para investir:</h3>
           <table>
             <thead>
@@ -140,13 +153,22 @@ export default function ListaDeAcoes() {
             </tbody>
           </table>
         </div>
-        <button
-          className="btn-lista-acoes"
-          type="button"
-          onClick={() => navigate('/deposito-retirada')}
-        >
-          Depósito / Retirada
-        </button>
+        <div className="container-btn-lista-acoes">
+          <button
+            className="btn-sair"
+            type="button"
+            onClick={() => navigate('/')}
+          >
+            Sair
+          </button>
+          <button
+            className="btn-lista-acoes"
+            type="button"
+            onClick={() => navigate('/deposito-retirada')}
+          >
+            Depósito / Retirada
+          </button>
+        </div>
       </div>
     </div>
   );
