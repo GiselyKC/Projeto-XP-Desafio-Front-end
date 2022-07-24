@@ -18,19 +18,22 @@ export default function DepositoOuRetirada() {
   }, []);
 
   const botaoConfirmar = () => {
+    if (contaValor <= 0 && valueBotao === 'botaoRetirada') {
+      toast.error('Saldo insuficiente para retirada');
+      setContaValor(contaValor - contaValor);
+      return;
+    }
+    if (valueBotao === '') {
+      toast.error('Deve selecionar as opções de Deposito ou Retirada');
+      return;
+    } if (inputValor === '') {
+      toast.error('Insira um valor');
+    }
     if (valueBotao === 'botaoDeposito') {
       setContaValor(contaValor + Number(inputValor));
     } if (valueBotao === 'botaoRetirada') {
       setContaValor(contaValor - Number(inputValor));
-    } if (valueBotao === '') {
-      toast.error('Deve selecionar as opções de Deposito ou Retirada');
-    } if (contaValor <= 0 && valueBotao === 'botaoRetirada') {
-      toast.error('Saldo insuficiente para retirada');
-      setContaValor(0);
-    } if (inputValor === '') {
-      toast.error('Insira o valor');
     }
-    return botaoConfirmar;
   };
 
   return (

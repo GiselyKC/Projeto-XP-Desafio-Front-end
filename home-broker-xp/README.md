@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Boas vindas ao repositório do projeto Home Broker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Neste projeto foi desenvolvido uma plataforma Home Broker que conecta o usuario ao sistema do pregão eletronico do mercado de capitais, ao utilizar essa aplicação o usuário será capaz de:
 
-## Available Scripts
+  - Depositar ou fazer retirada de dinheiro;
+  - Vizualizar seus ativos;
+  - Comprar ativos na bolsa;
 
-In the project directory, you can run:
+No repositorio você vai encontrar os detalhes para acessar a pagina e como foi desenvolvido o projeto.
 
-### `npm start`
+O projeto foi criado em aplicação React com uso de Hooks;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Intruções para vizualiar o projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone o repositório
 
-### `npm test`
+  - `git clone git@github.com:GiselyKC/Projeto-XP-Desafio-Front-end.git`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Entre na pasta do repositório que você acabou de clonar:
 
-### `npm run build`
+  - `cd Projeto-XP-Desafio-Front-end && home-broker-xp`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Instale as dependências e inicialize o projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Instale as dependências:
 
-### `npm run eject`
+  - `npm install`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Inicialize o projeto:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - `npm start` (uma nova página deve abrir no seu navegador com a aplicação)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Para acessar a aplicação:
 
-## Learn More
+  - Digite no email:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    - `giselycavalli@xp.com`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - Digite a senha:
 
-### Code Splitting
+    - `123456`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+Obs.: Você pode estar acessando o arquivo `db.json` contido no projeto e alterar o email e a senha, caso desejar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+### Página de Login
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Esta é a página inicial do aplicativo, a pessoa usuaria deverá conseguir fazer seu login, com email e senha.
 
-### Advanced Configuration
+  - A rota para esta página é ‘/’;
+  - Enquanto o usuario não digitar o email e senha, o botão 'Acessar' ficará desabilitado;
+  - Caso o usuario digitar a senha incorreta, aparecera uma mensagem informando 'Senha incorreta';
+  - Após clicar no botão 'Acessar' e ter informado o email e senha corretamente, a rota deve ser mudada para '/lista-acoes'.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Página de Listas de Ações
 
-### Deployment
+Esta é a página em que o usuario podera vizualizar suas ações e também terá acesso as ações ativas na bolsa.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  - A rota para esta página é ‘/lista-acoes’;
+  - Possui o botão 'Sair' que direciona para a página de Login;
+  - Possui o botão 'Depósito / Retirada' que direciona para a rota '/deposito-retirada';
+  - Na tabela 'Minhas Ações' contem o botão 'C / V' que após clicar, que direciona para a rota '/comprar-vender/:id';
+  - Na tabela 'Disponíveis para investir' contem o botão 'C' que após clicar, que direciona para a rota '/comprar-vender/:id'.
 
-### `npm run build` fails to minify
+### Página Depósito/Retirada
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Nesta página o usuario podera vizualizar em tela seu saldo e também depositar ou retirar seu dinheiro.
+
+  - A rota para esta página é ‘/deposito-retirada’;
+  - Possui o botão 'Voltar' que direciona para a página de Listas de Ações;
+  - Possui o botão confirmar, que caso:
+    - O usuario não selecionar a opção desejada, aparecera uma mensagem informando 'Deve selecionar as opções de Deposito ou Retirada';
+    - O usuario não inserir o valor desejado, aparecera uma mensagem informando 'Insira um valor';
+    - O usuario inserir o valor e selecionar o botão desejado, o saldo será alterado conforme sua escolha;
+    - O usuario tentar retirar um valor maior que o seu saldo, parecera uma mensagem informando 'Saldo insuficiente para retirada'.
+
+### Página Comprar e Vender Ação
+
+Nesta página o usuario podera comprar ou vender ação.
+
+  - A rota para esta página é ‘/comprar-vender/:id’;
+  - Possui o botão 'Voltar' que direciona para a página de Listas de Ações;
+  - Possui o botão confirmar, que caso:
+    - O usuario não selecionar a opção desejada, aparecera uma mensagem informando 'Deve selecionar a opçõe Comprar ou Vender';
+    - O usuario não inserir o valor desejado, aparecera uma mensagem informando 'Insira um valor';
+    - O usuario inserir o valor e selecionar o botão desejado, parecera uma mensagem informando 'Realizado com sucesso'.
+
+
+   
