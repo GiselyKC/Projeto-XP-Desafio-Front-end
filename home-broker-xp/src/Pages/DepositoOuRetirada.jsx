@@ -24,7 +24,7 @@ export default function DepositoOuRetirada() {
       return;
     }
     if (valueBotao === '') {
-      toast.error('Deve selecionar as opções de Deposito ou Retirada');
+      toast.error('Deve selecionar a opcão de Deposito ou Retirada');
       return;
     } if (inputValor === '') {
       toast.error('Insira um valor');

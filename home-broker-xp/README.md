@@ -87,6 +87,4 @@ Nesta página o usuário podera comprar ou vender ações.
     - não selecionar a opção desejada, aparecerá uma mensagem informando 'Deve selecionar a opçõe Comprar ou Vender';
     - não inserir o valor desejado, aparecerá uma mensagem informando 'Insira um valor';
     - inserir o valor e selecionar o botão desejado, parecera uma mensagem informando 'Realizado com sucesso'.
-
-
-   
+       
