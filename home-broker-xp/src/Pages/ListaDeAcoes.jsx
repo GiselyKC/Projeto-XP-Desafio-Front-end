@@ -13,6 +13,7 @@ export default function ListaDeAcoes() {
     setInfoBotao,
     CVUsuario,
     CVAcao,
+    setValorAcao,
   } = useContext(Context);
 
   useEffect(() => {
@@ -21,16 +22,11 @@ export default function ListaDeAcoes() {
 
   const infoAcoesUsuarioEmail = usuarios.find((usuario) => usuario.email === email).minhasAcoes;
 
-  const CVUsuarioOrganizado = [...infoAcoesUsuarioEmail, ...CVUsuario]
+  const CVUsuarioAcaoFiltrado = [...infoAcoesUsuarioEmail, ...CVUsuario, ...CVAcao]
     .reduce((acc, CVUsuarioInfo) => {
       const novoAcc = acc.filter(({ id }) => id !== CVUsuarioInfo.id);
       return [...novoAcc, CVUsuarioInfo];
     }, []);
-
-  const CVAcaoOrganizado = CVAcao.reduce((acc, CVAcaoInfo) => {
-    const novoAcc = acc.filter(({ id }) => id !== CVAcaoInfo.id);
-    return [...novoAcc, CVAcaoInfo];
-  }, []);
 
   return (
     <div className="container-lista-acoes">
@@ -48,32 +44,8 @@ export default function ListaDeAcoes() {
               </tr>
             </thead>
             <tbody>
-              {/* {
-                usuarios.find((usuario) => usuario.email === email).minhasAcoes
-                  .map(({
-                    id, nomeAcao, preco, quantidade,
-                  }) => (
-                    <tr key={id}>
-                      <td>{nomeAcao}</td>
-                      <td>{quantidade}</td>
-                      <td>{preco}</td>
-                      <td>
-                        <button
-                          type="button"
-                          value="acaoUsuario"
-                          onClick={() => {
-                            navigate(`/comprar-vender/${id}`);
-                            setInfoBotao('acaoUsuario');
-                          }}
-                        >
-                          C / V
-                        </button>
-                      </td>
-                    </tr>
-                  ))
-              } */}
               {
-                CVUsuarioOrganizado.map((CV) => (
+                CVUsuarioAcaoFiltrado.map((CV) => (
                   <tr key={CV.id}>
                     <td>{CV.nomeAcao}</td>
                     <td>{CV.quantidade}</td>
@@ -85,6 +57,7 @@ export default function ListaDeAcoes() {
                         onClick={() => {
                           navigate(`/comprar-vender/${CV.id}`);
                           setInfoBotao('acaoUsuario');
+                          setValorAcao(CV.preco);
                         }}
                       >
                         C / V
@@ -93,7 +66,7 @@ export default function ListaDeAcoes() {
                   </tr>
                 ))
               }
-              {
+              {/* {
                 CVAcaoOrganizado.map((CV) => (
                   <tr key={CV.id}>
                     <td>{CV.nomeAcao}</td>
@@ -113,7 +86,7 @@ export default function ListaDeAcoes() {
                     </td>
                   </tr>
                 ))
-              }
+              } */}
             </tbody>
           </table>
         </div>
