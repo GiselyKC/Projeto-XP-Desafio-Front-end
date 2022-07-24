@@ -10,6 +10,7 @@ function Provider({ children }) {
   const [infoBotao, setInfoBotao] = useState('');
   const [CVUsuario, setCVUsuario] = useState([]);
   const [CVAcao, setCVAcao] = useState([]);
+  const [valorAcao, setValorAcao] = useState('');
 
   const contextValue = useMemo(() => ({
     email,
@@ -24,7 +25,9 @@ function Provider({ children }) {
     setCVUsuario,
     CVAcao,
     setCVAcao,
-  }), [email, usuarios, acoes, infoBotao, CVUsuario, CVAcao]);
+    valorAcao,
+    setValorAcao,
+  }), [email, usuarios, acoes, infoBotao, CVUsuario, CVAcao, valorAcao]);
 
   return (
     <Context.Provider value={contextValue}>
