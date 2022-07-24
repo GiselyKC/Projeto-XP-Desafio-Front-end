@@ -27,7 +27,7 @@ table {
   letter-spacing: 1px;
   /* border: solid 1px honeydew; */
   border: none;
-
+  border-collapse: collapse;
 }
 
 table th {
