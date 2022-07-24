@@ -17,6 +17,7 @@ export default function ComprarOuVender() {
     setCVUsuario,
     CVAcao,
     setCVAcao,
+    valorAcao,
   } = useContext(Context);
   const [valorBotao, setValorBotao] = useState('');
   const [valorInput, setValorInput] = useState('');
@@ -38,8 +39,6 @@ export default function ComprarOuVender() {
         nomeAcao: acaoId.nomeAcao,
         preco: acaoId.preco,
         quantidade: (valorBotao === 'btnComprar' ? (acaoId.quantidade + Number(valorInput)) : (acaoId.quantidade - Number(valorInput))),
-        input: valorInput,
-        btn: valorBotao,
       }])
     ));
 
@@ -115,6 +114,12 @@ export default function ComprarOuVender() {
               placeholder="Informe a quantidade"
               onChange={({ target: { value } }) => setValorInput(value)}
             />
+            {
+            valorInput !== '' && valorBotao === 'btnComprar'
+              ? (
+                <p className="valor-ordem">{`Valor da ordem: R$ ${(Number(valorInput) * Number(valorAcao)).toFixed(2)}`}</p>)
+              : null
+            }
           </div>
           <div>
             <button
@@ -131,6 +136,12 @@ export default function ComprarOuVender() {
               placeholder="Informe a quantidade"
               onChange={({ target: { value } }) => setValorInput(value)}
             />
+            {
+            valorInput !== '' && valorBotao === 'btnVender'
+              ? (
+                <p className="valor-ordem">{`Valor da ordem: R$ ${(Number(valorInput) * Number(valorAcao)).toFixed(2)}`}</p>)
+              : null
+            }
           </div>
         </div>
       </div>
