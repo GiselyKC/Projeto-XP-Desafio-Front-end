@@ -18,7 +18,7 @@ O projeto foi criado em aplicação React com uso de Hooks e para manipular os e
 
 - Entre na pasta do repositório que você acabou de clonar:
 
-  - `cd Projeto-XP-Desafio-Front-end && home-broker-xp`
+  - `cd Projeto-XP-Desafio-Front-end`
 
 
 2. Instale as dependências e inicialize o projeto
