@@ -8,9 +8,9 @@ Neste projeto foi desenvolvido uma plataforma Home Broker que conecta o usuario 
 
 No repositorio você vai encontrar os detalhes para acessar a pagina e como foi desenvolvido o projeto.
 
-O projeto foi criado em aplicação React com uso de Hooks;
+O projeto foi criado em aplicação React com uso de Hooks e para manipular os estados foi usado o Context API;
 
-## Intruções para vizualiar o projeto
+## Instruções para vizualiar o projeto
 
 1. Clone o repositório
 
@@ -43,7 +43,7 @@ O projeto foi criado em aplicação React com uso de Hooks;
     - `123456`
 
 
-Obs.: Você pode estar acessando o arquivo `db.json` contido no projeto e alterar o email e a senha, caso desejar.
+Obs.: Você pode acessar o arquivo `db.json` contido no projeto e alterar o email e a senha, caso desejar.
 
 
 ### Página de Login
@@ -62,20 +62,20 @@ Esta é a página em que o usuario podera vizualizar suas ações e também ter�
   - A rota para esta página é ‘/lista-acoes’;
   - Possui o botão 'Sair' que direciona para a página de Login;
   - Possui o botão 'Depósito / Retirada' que direciona para a rota '/deposito-retirada';
-  - Na tabela 'Minhas Ações' contem o botão 'C / V' que após clicar, que direciona para a rota '/comprar-vender/:id';
-  - Na tabela 'Disponíveis para investir' contem o botão 'C' que após clicar, que direciona para a rota '/comprar-vender/:id'.
+  - Na tabela 'Minhas Ações' contem o botão 'C / V' que após clicar, direciona para a rota '/comprar-vender/:id';
+  - Na tabela 'Disponíveis para investir' contem o botão 'C' que após clicar, direciona para a rota '/comprar-vender/:id'.
 
 ### Página Depósito/Retirada
 
-Nesta página o usuario podera vizualizar em tela seu saldo e também depositar ou retirar seu dinheiro.
+Nesta página o usuario podera vizualizar em tela o seu saldo e também depositar ou retirar seu dinheiro.
 
   - A rota para esta página é ‘/deposito-retirada’;
   - Possui o botão 'Voltar' que direciona para a página de Listas de Ações;
-  - Possui o botão confirmar, que caso:
-    - O usuario não selecionar a opção desejada, aparecera uma mensagem informando 'Deve selecionar as opções de Deposito ou Retirada';
-    - O usuario não inserir o valor desejado, aparecera uma mensagem informando 'Insira um valor';
-    - O usuario inserir o valor e selecionar o botão desejado, o saldo será alterado conforme sua escolha;
-    - O usuario tentar retirar um valor maior que o seu saldo, parecera uma mensagem informando 'Saldo insuficiente para retirada'.
+  - Possui o botão confirmar, que caso o usuário:
+    - não selecionar a opção desejada, aparecera uma mensagem informando 'Deve selecionar a opcão de Deposito ou Retirada';
+    - não inserir o valor desejado, aparecera uma mensagem informando 'Insira um valor';
+    - inserir o valor e selecionar o botão desejado, o saldo será alterado conforme sua escolha;
+    - tentar retirar um valor maior que o seu saldo, parecera uma mensagem informando 'Saldo insuficiente para retirada'.
 
 ### Página Comprar e Vender Ação
 
@@ -83,10 +83,10 @@ Nesta página o usuario podera comprar ou vender ação.
 
   - A rota para esta página é ‘/comprar-vender/:id’;
   - Possui o botão 'Voltar' que direciona para a página de Listas de Ações;
-  - Possui o botão confirmar, que caso:
-    - O usuario não selecionar a opção desejada, aparecera uma mensagem informando 'Deve selecionar a opçõe Comprar ou Vender';
-    - O usuario não inserir o valor desejado, aparecera uma mensagem informando 'Insira um valor';
-    - O usuario inserir o valor e selecionar o botão desejado, parecera uma mensagem informando 'Realizado com sucesso'.
+  - Possui o botão confirmar, que caso o usuário:
+    - não selecionar a opção desejada, aparecera uma mensagem informando 'Deve selecionar a opçõe Comprar ou Vender';
+    - não inserir o valor desejado, aparecera uma mensagem informando 'Insira um valor';
+    - inserir o valor e selecionar o botão desejado, parecera uma mensagem informando 'Realizado com sucesso'.
 
 
    
