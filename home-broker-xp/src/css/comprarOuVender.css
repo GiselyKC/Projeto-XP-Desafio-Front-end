@@ -117,3 +117,11 @@ table button {
   letter-spacing: 2px;
   width: 50%
 }
+
+.valor-ordem {
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-align: end;
+  color: rgb(190, 59, 59);
+  font-weight: 700;
+}
