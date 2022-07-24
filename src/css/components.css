@@ -1,0 +1,10 @@
+.container-saldo-usuario {
+  text-align: end;
+  margin-right: 30px;
+}
+
+.container-nome {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 30px 10px;
+}

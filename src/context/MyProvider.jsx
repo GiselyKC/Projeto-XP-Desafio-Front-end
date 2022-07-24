@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Context from './MyContext';
@@ -11,6 +12,7 @@ function Provider({ children }) {
   const [CVUsuario, setCVUsuario] = useState([]);
   const [CVAcao, setCVAcao] = useState([]);
   const [valorAcao, setValorAcao] = useState('');
+  const [contaValor, setContaValor] = useState(0);
 
   const contextValue = useMemo(() => ({
     email,
@@ -27,7 +29,9 @@ function Provider({ children }) {
     setCVAcao,
     valorAcao,
     setValorAcao,
-  }), [email, usuarios, acoes, infoBotao, CVUsuario, CVAcao, valorAcao]);
+    contaValor,
+    setContaValor,
+  }), [email, usuarios, acoes, infoBotao, CVUsuario, CVAcao, valorAcao, contaValor]);
 
   return (
     <Context.Provider value={contextValue}>

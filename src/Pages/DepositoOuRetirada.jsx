@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import Context from '../context/MyContext';
@@ -7,31 +8,31 @@ import '../css/depositoOuRetirada.css';
 
 export default function DepositoOuRetirada() {
   const navigate = useNavigate();
-  const { email, usuarios } = useContext(Context);
+  const {
+    contaValor,
+    setContaValor,
+  } = useContext(Context);
+  console.log(contaValor, 'cdepois do context')
   const [valueBotao, setValueBotao] = useState('');
   const [inputValor, setInputValor] = useState('');
-  const [contaValor, setContaValor] = useState(0);
 
-  useEffect(() => {
-    usuarios.filter((usuario) => usuario.email === email)
-      .map(({ conta }) => setContaValor(conta));
-  }, []);
-
-  const botaoConfirmar = () => {
+  const botaoConfirmar = (event) => {
+    event.preventDefault();
     if (contaValor <= 0 && valueBotao === 'botaoRetirada') {
       toast.error('Saldo insuficiente para retirada');
-      setContaValor(contaValor - contaValor);
       return;
     }
     if (valueBotao === '') {
       toast.error('Deve selecionar a opcão de Deposito ou Retirada');
       return;
-    } if (inputValor === '') {
+    } 
+    if (inputValor === '') {
       toast.error('Insira um valor');
     }
     if (valueBotao === 'botaoDeposito') {
       setContaValor(contaValor + Number(inputValor));
-    } if (valueBotao === 'botaoRetirada') {
+    } 
+    if (valueBotao === 'botaoRetirada') {
       setContaValor(contaValor - Number(inputValor));
     }
   };

@@ -8,12 +8,6 @@
   /* align-items: center; */
 }
 
-.container-nome {
-  display: flex;
-  justify-content: flex-end;
-  margin: 30px;
-}
-
 .container-table-comprar-vender {
   display: flex;
   margin-bottom: 100px;

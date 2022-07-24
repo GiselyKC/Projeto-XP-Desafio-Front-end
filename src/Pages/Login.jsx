@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
@@ -6,7 +7,7 @@ import '../css/login.css';
 
 export default function Login() {
   const navigate = useNavigate();
-  const { email, setEmail, usuarios } = useContext(Context);
+  const { email, setEmail, usuarios, setContaValor } = useContext(Context);
   const [senhaLogin, setSenhaLogin] = useState('');
 
   const valueSenha = ({ target: { value } }) => {
@@ -21,6 +22,8 @@ export default function Login() {
     if (senhaLogin === teste) {
       navigate('/lista-acoes');
     }
+    usuarios.filter((usuario) => usuario.email === email)
+    .map(({ conta }) => setContaValor(conta));
   };
 
   return (

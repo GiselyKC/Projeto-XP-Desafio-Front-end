@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Context from '../context/MyContext';
 import NomeUsuario from '../components/NomeUsuario';
+import SaldoUsuario from '../components/SaldoUsuario';
 import '../css/listaDeAcoes.css';
 
 export default function ListaDeAcoes() {
@@ -18,6 +19,7 @@ export default function ListaDeAcoes() {
 
   useEffect(() => {
     setInfoBotao('');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const infoAcoesUsuarioEmail = usuarios.find((usuario) => usuario.email === email).minhasAcoes;
@@ -28,14 +30,10 @@ export default function ListaDeAcoes() {
       return [...novoAcc, CVUsuarioInfo];
     }, []);
 
-  // const CVAcaoOrganizado = CVAcao.reduce((acc, CVAcaoInfo) => {
-  //   const novoAcc = acc.filter(({ id }) => id !== CVAcaoInfo.id);
-  //   return [...novoAcc, CVAcaoInfo];
-  // }, []);
-
   return (
     <div className="container-lista-acoes">
       <NomeUsuario />
+      <SaldoUsuario />
       <div className="container-tabelas">
         <div className="tabela-usuario-acao">
           <h3 className="title-lista-acoes">Minhas Ações:</h3>

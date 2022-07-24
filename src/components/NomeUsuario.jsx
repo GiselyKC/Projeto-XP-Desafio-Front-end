@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext } from 'react';
 import Context from '../context/MyContext';
-import '../css/listaDeAcoes.css';
+import '../css/components.css';
 
 export default function NomeUsuario() {
   const { email, usuarios } = useContext(Context);

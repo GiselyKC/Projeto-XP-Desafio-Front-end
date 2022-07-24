@@ -8,12 +8,6 @@
   flex-direction: column;
 }
 
-.container-nome {
-  display: flex;
-  justify-content: flex-end;
-  margin: 30px;
-}
-
 .container-tabelas {
   display: flex;
   margin-bottom: 100px;

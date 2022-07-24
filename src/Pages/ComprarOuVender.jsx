@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import Context from '../context/MyContext';
 import NomeUsuario from '../components/NomeUsuario';
+import SaldoUsuario from '../components/SaldoUsuario';
 import '../css/comprarOuVender.css';
 
 export default function ComprarOuVender() {
@@ -64,8 +65,9 @@ export default function ComprarOuVender() {
 
   return (
     <div className="container-comprar-vender">
-      <NomeUsuario />
       <Toaster />
+      <NomeUsuario />
+      <SaldoUsuario />
       <div className="container-table-comprar-vender">
         <h3 className="title-comprar-vender">Comprar/Vender Ação:</h3>
         <table border="1">
