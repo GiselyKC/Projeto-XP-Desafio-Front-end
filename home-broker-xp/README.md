@@ -1,6 +1,6 @@
 # Boas vindas ao repositório do projeto Home Broker
 
-Neste projeto foi desenvolvido uma plataforma Home Broker que conecta o usuario ao sistema do pregão eletronico do mercado de capitais, ao utilizar essa aplicação o usuário será capaz de:
+Neste projeto foi desenvolvido uma plataforma Home Broker que conecta o usuário ao sistema do pregão eletronico do mercado de capitais, ao utilizar essa aplicação o usuário será capaz de:
 
   - Depositar ou fazer retirada de dinheiro;
   - Vizualizar seus ativos;
@@ -51,13 +51,13 @@ Obs.: Você pode acessar o arquivo `db.json` contido no projeto e alterar o emai
 Esta é a página inicial do aplicativo, a pessoa usuaria deverá conseguir fazer seu login, com email e senha.
 
   - A rota para esta página é ‘/’;
-  - Enquanto o usuario não digitar o email e senha, o botão 'Acessar' ficará desabilitado;
-  - Caso o usuario digitar a senha incorreta, aparecera uma mensagem informando 'Senha incorreta';
+  - Enquanto o usuário não digitar o email e senha, o botão 'Acessar' ficará desabilitado;
+  - Caso o usuário digitar a senha incorreta, aparecerá uma mensagem informando 'Senha incorreta';
   - Após clicar no botão 'Acessar' e ter informado o email e senha corretamente, a rota deve ser mudada para '/lista-acoes'.
 
 ### Página de Listas de Ações
 
-Esta é a página em que o usuario podera vizualizar suas ações e também terá acesso as ações ativas na bolsa.
+Esta é a página em que o usuário podera vizualizar suas ações e também terá acesso as ações ativas na bolsa.
 
   - A rota para esta página é ‘/lista-acoes’;
   - Possui o botão 'Sair' que direciona para a página de Login;
@@ -67,25 +67,25 @@ Esta é a página em que o usuario podera vizualizar suas ações e também ter�
 
 ### Página Depósito/Retirada
 
-Nesta página o usuario podera vizualizar em tela o seu saldo e também depositar ou retirar seu dinheiro.
+Nesta página o usuário podera vizualizar em tela o seu saldo e também depositar ou retirar seu dinheiro.
 
   - A rota para esta página é ‘/deposito-retirada’;
   - Possui o botão 'Voltar' que direciona para a página de Listas de Ações;
   - Possui o botão confirmar, que caso o usuário:
-    - não selecionar a opção desejada, aparecera uma mensagem informando 'Deve selecionar a opcão de Deposito ou Retirada';
-    - não inserir o valor desejado, aparecera uma mensagem informando 'Insira um valor';
+    - não selecionar a opção desejada, aparecerá uma mensagem informando 'Deve selecionar a opcão de Deposito ou Retirada';
+    - não inserir o valor desejado, aparecerá uma mensagem informando 'Insira um valor';
     - inserir o valor e selecionar o botão desejado, o saldo será alterado conforme sua escolha;
     - tentar retirar um valor maior que o seu saldo, parecera uma mensagem informando 'Saldo insuficiente para retirada'.
 
 ### Página Comprar e Vender Ação
 
-Nesta página o usuario podera comprar ou vender ação.
+Nesta página o usuário podera comprar ou vender ações.
 
   - A rota para esta página é ‘/comprar-vender/:id’;
   - Possui o botão 'Voltar' que direciona para a página de Listas de Ações;
   - Possui o botão confirmar, que caso o usuário:
-    - não selecionar a opção desejada, aparecera uma mensagem informando 'Deve selecionar a opçõe Comprar ou Vender';
-    - não inserir o valor desejado, aparecera uma mensagem informando 'Insira um valor';
+    - não selecionar a opção desejada, aparecerá uma mensagem informando 'Deve selecionar a opçõe Comprar ou Vender';
+    - não inserir o valor desejado, aparecerá uma mensagem informando 'Insira um valor';
     - inserir o valor e selecionar o botão desejado, parecera uma mensagem informando 'Realizado com sucesso'.
 
 
