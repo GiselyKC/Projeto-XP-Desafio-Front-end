@@ -45,12 +45,16 @@ export default function ComprarOuVender() {
   const btnConfirmar = () => {
     if (valorBotao === '') {
       toast.error('Deve informar a opção');
-    } if (valorInput === '') {
+      return;
+    }
+    if (valorInput === '') {
       toast.error('Deve informar o valor desejado');
+      return;
     }
     if (infoBotao === 'acaoUsuario' && valorInput !== '') {
       objetoUsuario();
       toast.success('Realizado com sucesso');
+      return;
     }
     if (infoBotao === 'acaoDisponivel' && valorInput !== '') {
       objetoAcao();
