@@ -28,6 +28,11 @@ export default function ListaDeAcoes() {
       return [...novoAcc, CVUsuarioInfo];
     }, []);
 
+  // const CVAcaoOrganizado = CVAcao.reduce((acc, CVAcaoInfo) => {
+  //   const novoAcc = acc.filter(({ id }) => id !== CVAcaoInfo.id);
+  //   return [...novoAcc, CVAcaoInfo];
+  // }, []);
+
   return (
     <div className="container-lista-acoes">
       <NomeUsuario />
