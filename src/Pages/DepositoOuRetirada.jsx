@@ -16,8 +16,7 @@ export default function DepositoOuRetirada() {
   const [valueBotao, setValueBotao] = useState('');
   const [inputValor, setInputValor] = useState('');
 
-  const botaoConfirmar = (event) => {
-    event.preventDefault();
+  const botaoConfirmar = () => {
     if (contaValor <= 0 && valueBotao === 'botaoRetirada') {
       toast.error('Saldo insuficiente para retirada');
       return;
