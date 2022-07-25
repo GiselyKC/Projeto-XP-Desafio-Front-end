@@ -19,9 +19,26 @@ export default function ComprarOuVender() {
     CVAcao,
     setCVAcao,
     valorAcao,
+    contaValor,
+    setContaValor,
   } = useContext(Context);
   const [valorBotao, setValorBotao] = useState('');
   const [valorInput, setValorInput] = useState('');
+
+  const novoSaldo = () => {
+    const valorInputQuantidade = (Number(valorInput) * Number(valorAcao));
+    if (valorBotao === 'btnComprar') {
+      if (contaValor < valorInputQuantidade) {
+        toast.error('Saldo insuficiente');
+        return;
+      }
+      setContaValor(contaValor - valorInputQuantidade);
+      return;
+    }
+    if (valorBotao === 'btnVender') {
+      setContaValor(contaValor + valorInputQuantidade);
+    }
+  }
 
   const objetoUsuario = () => usuarios.find((usuario) => usuario.email === email).minhasAcoes
     .filter((user) => user.id === Number(id)).map((acaoId) => (
@@ -43,6 +60,8 @@ export default function ComprarOuVender() {
       }])
     ));
 
+
+
   const btnConfirmar = () => {
     if (valorBotao === '') {
       toast.error('Deve selecionar a opçõe Comprar ou Vender');
@@ -55,11 +74,13 @@ export default function ComprarOuVender() {
     if (infoBotao === 'acaoUsuario' && valorInput !== '') {
       objetoUsuario();
       toast.success('Realizado com sucesso');
+      novoSaldo();
       return;
     }
     if (infoBotao === 'acaoDisponivel' && valorInput !== '') {
       objetoAcao();
       toast.success('Realizado com sucesso');
+      novoSaldo();
     }
   };
 
