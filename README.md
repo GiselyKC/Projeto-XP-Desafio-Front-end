@@ -6,7 +6,7 @@ Neste projeto foi desenvolvido uma plataforma Home Broker que conecta o usuário
   - Vizualizar seus ativos;
   - Comprar ativos na bolsa;
 
-No repositorio você vai encontrar os detalhes para acessar a pagina e como foi desenvolvido o projeto.
+No repositório você vai encontrar os detalhes para acessar a pagina e como foi desenvolvido o projeto.
 
 O projeto foi criado em aplicação React com uso de Hooks e para manipular os estados foi usado o Context API;
 
@@ -62,8 +62,8 @@ Esta é a página em que o usuário podera vizualizar suas ações e também ter
   - A rota para esta página é ‘/lista-acoes’;
   - Possui o botão 'Sair' que direciona para a página de Login;
   - Possui o botão 'Depósito / Retirada' que direciona para a rota '/deposito-retirada';
-  - Na tabela 'Minhas Ações' contem o botão 'C / V' que após clicar, direciona para a rota '/comprar-vender/:id';
-  - Na tabela 'Disponíveis para investir' contem o botão 'C' que após clicar, direciona para a rota '/comprar-vender/:id'.
+  - Na tabela 'Minhas Ações' contém o botão 'C / V' que após clicar, direciona para a rota '/comprar-vender/:id';
+  - Na tabela 'Disponíveis para investir' contém o botão 'C' que após clicar, direciona para a rota '/comprar-vender/:id'.
 
 ### Página Depósito/Retirada
 
@@ -77,14 +77,14 @@ Nesta página o usuário podera vizualizar em tela o seu saldo e também deposit
     - inserir o valor e selecionar o botão desejado, o saldo será alterado conforme sua escolha;
     - tentar retirar um valor maior que o seu saldo, parecera uma mensagem informando 'Saldo insuficiente para retirada'.
 
-### Página Comprar e Vender Ação
+### Página Comprar e Vender Ações
 
 Nesta página o usuário podera comprar ou vender ações.
 
   - A rota para esta página é ‘/comprar-vender/:id’;
   - Possui o botão 'Voltar' que direciona para a página de Listas de Ações;
   - Possui o botão confirmar, que caso o usuário:
-    - não selecionar a opção desejada, aparecerá uma mensagem informando 'Deve selecionar a opçõe Comprar ou Vender';
+    - não selecionar a opção desejada, aparecerá uma mensagem informando 'Deve selecionar a opção Comprar ou Vender';
     - não inserir o valor desejado, aparecerá uma mensagem informando 'Insira um valor';
     - inserir o valor e selecionar o botão desejado, parecera uma mensagem informando 'Realizado com sucesso'.
        

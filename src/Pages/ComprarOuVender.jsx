@@ -64,7 +64,7 @@ export default function ComprarOuVender() {
 
   const btnConfirmar = () => {
     if (valorBotao === '') {
-      toast.error('Deve selecionar a opçõe Comprar ou Vender');
+      toast.error('Deve selecionar a opção Comprar ou Vender');
       return;
     }
     if (valorInput === '') {
