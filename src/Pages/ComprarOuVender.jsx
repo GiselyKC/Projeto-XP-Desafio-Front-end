@@ -73,8 +73,8 @@ export default function ComprarOuVender() {
     }
     if (infoBotao === 'acaoUsuario' && valorInput !== '') {
       objetoUsuario();
-      toast.success('Realizado com sucesso');
       novoSaldo();
+      toast.success('Realizado com sucesso');
       return;
     }
     if (infoBotao === 'acaoDisponivel' && valorInput !== '') {
