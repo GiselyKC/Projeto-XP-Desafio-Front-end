@@ -1,6 +1,6 @@
 # Boas vindas ao repositório do projeto Home Broker
 
-Neste projeto foi desenvolvido uma plataforma Home Broker que conecta o usuário ao sistema do pregão eletrônico do mercado de capitais, ao utilizar essa aplicação o usuário será capaz de:
+Neste projeto foi desenvolvido uma plataforma Home Broker para o desafio de Front End da XP Inc. que conecta o usuário ao sistema do pregão eletrônico do mercado de capitais, ao utilizar essa aplicação o usuário será capaz de:
 
   - Depositar ou fazer retirada de dinheiro;
   - Vizualizar seus ativos;
